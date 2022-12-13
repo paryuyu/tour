@@ -6,7 +6,8 @@ import review from "./route/review.js"
 import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
-const target ="mongodb+srv://mernyuyu:wkdrnahr777@cluster0.qeg74yn.mongodb.net/test"
+//TODO: env로 넣기
+const target = process.env.MONGODB_URI;
 mongoose.connect( target, {dbName:"tour"});
 
 
