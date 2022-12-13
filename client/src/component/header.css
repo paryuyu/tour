@@ -1,0 +1,23 @@
+.seachingBar{
+    height: 50px;
+    width: 70%;
+    border:0px;
+    margin: 10px;
+
+}
+.searchingArea{
+    text-align: center;
+}
+.searchingButton{
+    background-color: green;
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(248, 255, 244);
+}
+#mapIcon{
+    margin: 10px;
+    padding: 10px;
+    color: rgb(78, 91, 104);
+}

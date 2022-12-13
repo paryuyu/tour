@@ -1,0 +1,36 @@
+.DetailBox{
+    border: 5px solid  rgb(145, 194, 145);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    width: 30%;
+   
+  
+}
+#markDest{
+    color:  rgb(94, 138, 94);;
+}
+.Detailsbox{
+    font-size: 12px;
+    color: rgb(66, 66, 66);
+    text-align: center;
+}
+b{
+    margin: 10px;
+}
+#human{
+    margin: 30px;
+    color: rgb(49, 94, 49);
+    
+}
+div{
+    margin: 10px;
+
+}
+#backIcon{
+    text-align: left;
+    color: gray
+}
+h5{
+    text-align: center;
+}
