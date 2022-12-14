@@ -4,6 +4,7 @@ import Review from "./review";
 import { tourItems } from "../App"
 import "./detail.css"
 import { useContext } from "react";
+import CommentDetail from "./comment_detail";
 
 function Detail({ item }) {
 
@@ -24,31 +25,36 @@ function Detail({ item }) {
     const findItem = useSelected.datas.find(a => { return a.id === params.id }
     )
 
-    console.log(findItem, "findItem")
-        const backHandle = () =>{
-            navi(-1)
-        }
+    const backHandle = () => {
+        navi(-1)
+    }
 
-    return(<>
-    <div className="DetailBox">
-    <i className="fas fa-arrow-left" onClick={backHandle} id="backIcon"/>
+    return (<>
+        <div className="DetailBox">
+            <i className="fas fa-arrow-left" onClick={backHandle} id="backIcon" />
 
-        <h5><i className="fas fa-map-marker-alt" id="markDest" /> {findItem ? findItem.tourDestNm : '정보 확인 중'}</h5>
-        <div className="Detailsbox">
-        <i className="fas fa-walking fa-3x" id="human"></i>
-            <div><b>지번주소</b>{findItem ? findItem.addrRoad: '정보 확인 중'}</div>
-            <div><b>관리기관</b>{findItem ? findItem.mngAgcNm: '정보 확인 중'}</div>
-            <div><b>관리기관 전화번호</b>{findItem ? findItem.mngAgcTel: '정보 확인 중'}</div>
-            <div><b>공공편익시설 정보</b>{findItem ? findItem.publicConvFcltInfo: '정보 확인 중'}</div>
-            <div><b>관광지소개</b>{findItem ? findItem.tourDestIntro: '정보 확인 중'}</div> 
+            <h5><i className="fas fa-map-marker-alt" id="markDest" /> {findItem ? findItem.tourDestNm : '정보 확인 중'}</h5>
+            <div className="Detailsbox">
+                <i className="fas fa-walking fa-3x" id="human"></i>
+                <div><b>지번주소</b>{findItem ? findItem.addrRoad : '정보 확인 중'}</div>
+                <div><b>관리기관</b>{findItem ? findItem.mngAgcNm : '정보 확인 중'}</div>
+                <div><b>관리기관 전화번호</b>{findItem ? findItem.mngAgcTel : '정보 확인 중'}</div>
+                <div><b>공공편익시설 정보</b>{findItem ? findItem.publicConvFcltInfo : '정보 확인 중'}</div>
+                <div><b>관광지소개</b>{findItem ? findItem.tourDestIntro : '정보 확인 중'}</div>
 
+
+            </div>
+            <Review item={state} />
 
         </div>
-    <Review/>
-       
-    </div>
+
+
+        <div style={{ background: 'red' }}>
+            <CommentDetail />
+        </div>
+
     </>
-  )
+    )
 
 
 

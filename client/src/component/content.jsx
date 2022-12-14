@@ -7,11 +7,11 @@ function Content({ datas , onSelected}) {
 
     return (<div className="contentOut">
      
-            <span>
+            <div style={{overflow:"scroll", height:"500px"}}>
                 {datas.map((one) => {
                     return <Item data={one} key={one.id} className="itemList" onSelected={onSelected}/>
                 })}
-            </span>
+            </div>
     </div>);
 }
 

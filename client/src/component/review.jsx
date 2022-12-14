@@ -1,21 +1,39 @@
 import "./review.css"
 import ReviewAPI from "../service/reviewAPI";
-import { useRef } from "react";
-function Review() {
-    const reviewRef=useRef()
-    //입력 및 출력
+import { useRef, useState } from "react";
+import { ReviewCreate } from "../service/review_API";
+function Review({item}) {
+ 
+    const [review, setReview] = useState("")
+    const [writer, setWriter] = useState("")
+    
+    console.log(item,'리뷰화면')
+
     const handleSubmit =(evt)=>{
         evt.preventDefault();
-        console.log(reviewRef.current.value)
-        ReviewAPI.review(reviewRef.current.value)
+        if(item){
+            let fetchItem = {
+                review: review,
+                writer: writer,
+                targetId: item.id,
+                createdAt: new Date()
+            }
+    
+            ReviewCreate(fetchItem)
+        }
+        
     }
 
-    return (<form >
-        <input type="file" />
-        <input type="text" name="review" placeholder="리뷰를 등록해보세요." ref={reviewRef}/>
-        <button type="submit" onClick={handleSubmit}>등록</button>
 
-        </form>);
+
+    return (<div >
+
+        {/* <input type="file"/> */}
+        <input type="text" name="writer" placeholder="작성자" onChange={(evt)=>{setWriter(evt.target.value)}} />
+        <input type="text" name="review" placeholder="리뷰를 등록해보세요." onChange={(evt)=>{setReview(evt.target.value)}} />
+        <button onClick={handleSubmit}>등록</button>
+
+        </div>);
 }
 
 export default Review;

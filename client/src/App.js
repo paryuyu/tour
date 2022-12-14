@@ -12,6 +12,7 @@ import "./App.css"
 //TourAPI에서 파일 전체로 안넘기고 개별 함수로 넘겨서 중괄호 해줘야함.
 import { TourAPI } from "./service/tourAPI";
 import ReviewAPI from './service/reviewAPI';
+import CommentDetail from './component/comment_detail';
 
 const tourAPI = new TourAPI();
 
@@ -72,6 +73,9 @@ function App() {
       <Header datas={state} />
       <div className='group'>
       <Map className="mapOut"/>
+      <div style={{background:'red'}}>
+      <CommentDetail/>
+      </div>
         <Routes>
           <Route path="/" element={<Content datas={state.datas} onSelected={onSelected}/>} />
           <Route path="/detail/:id" element={<Detail item={selectItem} />} />

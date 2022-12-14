@@ -6,15 +6,12 @@ export class TourAPI {
         this.baseURL = "http://apis.data.go.kr/6290000/tourdestbaseinfo/gettourdestbaseinfo"
     }
 
+    async getInfos(tourDestNm) {
+        const key = process.env.REACT_APP_SERVICE_KEY;
+        const type = "json"
+        const response = await fetch(this.baseURL + "?serviceKey=" + key + "&type=" + type)
 
-    async getInfos(tourDestNm){
-    const key = process.env.REACT_APP_SERVICE_KEY;
-        const type="json"
-
-
-       const response = await fetch(this.baseURL+"?serviceKey="+key+"&type="+type)
-
-       return await response.json();
+        return await response.json();
     }
 
 }
